@@ -1,23 +1,29 @@
+using System;
+
 namespace P1CreateClasses;
 
 public class BankCustomer
 {
+    private static int s_nextCustomerId;
     public string FirstName = "Tim";
     public string LastName = "Shao";
-    public string CustomerId = "1010101010";
+    public readonly string CustomerId;
 
-    public BankCustomer() { }
+    static BankCustomer()
+    {
+        Random random = new Random();
+        s_nextCustomerId = random.Next(10000000, 20000000);
+    }
+
+    public BankCustomer()
+    {
+        this.CustomerId = (s_nextCustomerId++).ToString("D10");
+    }
 
     public BankCustomer(string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
-    }
-
-    public BankCustomer(string firstName, string lastName, string customerIdNumber)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        CustomerId = customerIdNumber;
+        this.CustomerId = (s_nextCustomerId++).ToString("D10");
     }
 }

@@ -1,12 +1,13 @@
-namespace P4ImplementInterfaces;
-
-public class Student : IPerson
+namespace P4ImplementInterfaces
 {
-    public string Name { get; set; } = string.Empty;
-    public int Age { get; set; }
-
-    public void DisplayInfo()
+    public class Student : IPerson
     {
-        Console.WriteLine($"Student Name: {Name}, Age: {Age}");
+        public string Name { get; set; } = string.Empty;
+        public int Age { get; set; } = 0;
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Student Name: {Name}, Age: {Age}");
+        }
     }
 }

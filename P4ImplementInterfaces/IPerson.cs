@@ -1,8 +1,9 @@
-namespace P4ImplementInterfaces;
-
-public interface IPerson
+namespace P4ImplementInterfaces
 {
-    string Name { get; set; }
-    int Age { get; set; }
-    void DisplayInfo();
+    public interface IPerson
+    {
+        string Name { get; set; }
+        int Age { get; set; }
+        void DisplayInfo();
+    }
 }

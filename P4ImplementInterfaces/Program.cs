@@ -1,7 +1,16 @@
-using P4ImplementInterfaces;
+﻿using System;
 
-IPerson student = new Student { Name = "Eric Solomon", Age = 20 };
-IPerson teacher = new Teacher { Name = "Kayla Lewis", Age = 35 };
+namespace P4ImplementInterfaces
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IPerson student = new Student { Name = "Eric Solomon", Age = 20 };
+            IPerson teacher = new Teacher { Name = "Kayla Lewis", Age = 35 };
 
-student.DisplayInfo();
-teacher.DisplayInfo();
+            student.DisplayInfo();
+            teacher.DisplayInfo();
+        }
+    }
+}

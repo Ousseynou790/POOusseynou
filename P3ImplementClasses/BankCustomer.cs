@@ -1,13 +1,45 @@
+using System;
+
 namespace P3ImplementClasses;
 
-public class BankCustomer
+public partial class BankCustomer
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    private static int s_nextCustomerId;
+    private string _firstName = "Tim";
+    private string _lastName = "Shao";
+    public readonly string CustomerId;
+
+    static BankCustomer()
+    {
+        Random random = new Random();
+        s_nextCustomerId = random.Next(10000000, 20000000);
+    }
 
     public BankCustomer(string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
+        this.CustomerId = (s_nextCustomerId++).ToString("D10");
+    }
+
+    // Copy constructor for BankCustomer
+    public BankCustomer(BankCustomer existingCustomer)
+    {
+        this.FirstName = existingCustomer.FirstName;
+        this.LastName = existingCustomer.LastName;
+        //this.CustomerId = existingCustomer.CustomerId;
+        this.CustomerId = (s_nextCustomerId++).ToString("D10");
+    }
+
+    public string FirstName
+    {
+        get { return _firstName; }
+        set { _firstName = value; }
+    }
+
+    public string LastName
+    {
+        get { return _lastName; }
+        set { _lastName = value; }
     }
 }
